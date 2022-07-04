@@ -1,13 +1,16 @@
 const mariadb = require('mariadb');
+require('dotenv').config();
 
 const connection = mariadb.createPool({
-  host: '144.24.168.48',
-  user: 'tomek',
-  password: 'Tomekomek1@',
-  connectionLimit: 5
-})
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
+});
 
 connection.getConnection()
-  .then( conn => {
-    console.log("entered mariaDB database")
+  .then( () => {
+    console.log("connected to mariaDB database")
   })
+    
+module.exports = connection;
