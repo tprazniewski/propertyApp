@@ -48,7 +48,17 @@ router.put('/:id`', (req, res) => {
 });
 
 router.delete('/:id`', async(req, res) => {
-
+  console.log("weszlo")
+  try {
+    console.log(req.params.id)
+    const sqlQuery = 'DELETE FROM properties where id = ?';
+    const rows = await connection.query(sqlQuery, [req.params.id]);
+    delete rows.meta;
+    res.status(200).json(rows).end();
+    
+  } catch (error) {
+    res.status(400).send(error.message)
+  }
 });
 
 module.exports = router
