@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const connection = require('../../db/mySql')
+const connection = require('../db/mySql')
 const bcrypt = require('bcrypt');
 
 router.get('/', async (req, res) => {
