@@ -44,26 +44,24 @@ router.post('/', async (req, res) => {
 
 
 });
-router.put('/:id`', (req, res) => {
+router.put('/:id', (req, res) => {
   console.log("put entered")
   res.status(200).json('entered put').end();
 
 });
 
-router.delete('/:id`', async(req, res) => {
+router.delete('/:id', async(req, res) => {
   console.log("weszlo")
-  res.status(200).json('delete weszlo').end();
+  // res.status(200).json('delete weszlo').end();
 
-  // try {
-  //   console.log(req.params.id)
-  //   const sqlQuery = 'DELETE FROM properties where id = ?';
-  //   const rows = await connection.query(sqlQuery, [req.params.id]);
-  //   delete rows.meta;
-  //   res.status(200).json(rows).end();
+  try {
+    const sqlQuery = `DELETE FROM properties where id = ${(req.params.id)}`;
+    const rows = await connection.query(sqlQuery);
+    res.status(200).json({properties: 'Deleted'}).end();
     
-  // } catch (error) {
-  //   res.status(400).send(error.message)
-  // }
+  } catch (error) {
+    res.status(400).send(error.message)
+  }
 });
 
 module.exports = router

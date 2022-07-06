@@ -4,7 +4,7 @@ const app = express();
 const connection = require('./db/mySql')
 const dotenv = require('dotenv');
 const apiProperties  = require('./routers/api/properties')
-const users = require('./routers/users')
+const users = require('./routers/api/users')
 const CORS = require('./helpers/_cors')
 require('dotenv').config();
 const PORT = process.env.PORT || '3002';
@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(CORS)
 
 app.use('/api/properties', apiProperties);
-app.use('/users', users);
+app.use('/api/users', users);
 
 app.listen(PORT, () => {
   console.log(`Server started on port:5001`)

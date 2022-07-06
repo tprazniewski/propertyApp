@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react'
+// import { useParams } from 'react-router-dom'
 // import {getUsers} from '../utilities/api'
-const test = [1,5,6,7]
 export const Users = () => {
 const [users, setUsers] = useState([])
-
+// const params = useParams();
+// console.log(params)
 const getUsers = () => {
   const url = 'http://localhost:5001/api/users'
   return fetch(url, {
@@ -11,7 +12,7 @@ const getUsers = () => {
     mode: 'cors'
   })
   .then(res => res.json())
-  .then(res => setUsers(res.user))
+  .then(res => setUsers(res))
   .catch(err => console.error(err.message))
 }
 useEffect(() => {
@@ -19,7 +20,8 @@ useEffect(() => {
 }, [])
     return (
     	<div>
-      {users.map(name => <h2>{name}</h2>)}
+      {users.map(name => <h2>{name.id}</h2>)}
+      {users.map(name => <h2>{name.name}</h2>)}
       	</div>
     )
 
