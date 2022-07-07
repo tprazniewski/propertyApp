@@ -9,6 +9,7 @@ import {toRent} from './components/ToRent'
 import {forSale} from './components/ForSale'
 import RentPage from './pages/RentPage'
 import User from './pages/User'
+import Property from './pages/Property'
 import {NewPropertyForm} from './components/NewPropertyForm';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
               <Route path="/rent" element={<RentPage />} />
               <Route path="/users" element={<Users />} />
               <Route path="/users/:id" element={<User />} />
+              <Route path="/properties/:id" element={<Property />} />
               <Route path="/properties" element={<Properties />} />
               <Route path="/properties/new" element={<NewPropertyForm />} />
               <Route path="/users/new" element={<Form />} />

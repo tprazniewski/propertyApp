@@ -33,15 +33,18 @@ router.get('/:id', async (req, res) => {
 
 });
 router.post('/', async (req, res) => {
+
+  const {title, description, price, type, location, img, kind, property_id} = req.body
+  console.log(req.body)
+
   try {
     const sqlQuery = ` 
-    INSERT INTO properties (title, description, price, type, location, img, kind)
+    INSERT INTO properties (title, description, price, type, location, img, kind, property_id)
     VALUES
-    ('Pretty cheap House for sale', 'This flat is pretty small and pretty cheap', 12345, 'For Sale', 'Stockholm', '', 'House' )
+    ('${title}', '${description}', 777, '${type}', '${location}', '${imgs}', '${kind}', 2 )
     `
     const rows = await connection.query(sqlQuery);
-    // delete rows.meta;
-    res.status(200).json('You added a new property').end();
+    res.status(200).json({ response: 'Added'}).end();
     
   } catch (error) {
     res.status(400).send(error.message)

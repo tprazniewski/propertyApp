@@ -8,9 +8,9 @@ export function NewPropertyForm() {
     price: '',
     type: '',
     location: '',
-    img: '',
+    img: '131231',
     kind: '',
-    property_id: ''
+    property_id: 1
   })
   
   const handle = e => {
@@ -21,7 +21,7 @@ export function NewPropertyForm() {
   
   const submit = (e) =>{
     e.preventDefault();
-    const url = 'http://localhost:5001/api/users'
+    const url = 'http://localhost:5001/api/properties'
     fetch(url, {
       method: 'POST', 
       headers: {
@@ -33,15 +33,17 @@ export function NewPropertyForm() {
     .catch(e => console.log(e.message))
     
   }
-  
+
   return (
     // <form className="place-form">
     <form onSubmit={e =>submit(e)}>
-      <label>Name:<input onChange={(e) =>handle(e)} id="name" type="text"/></label>
-      <label>Surname:<input onChange={(e) =>handle(e)}  id="surname" type="text"/></label>
-      <label>DOB:<input onChange={(e) =>handle(e)} id="dob" type="text"/></label>
-      <label>email:<input onChange={(e) =>handle(e)} id="email" type="text"/></label>
-      <label>phone:<input onChange={(e) =>handle(e)} id="phone" type="text"/></label>
+      <label>title:<input onChange={(e) =>handle(e)} id="title" type="text"/></label>
+      <label>description:<input onChange={(e) =>handle(e)}  id="description" type="text"/></label>
+      <label>price:<input onChange={(e) =>handle(e)} id="price" type="text"/></label>
+      <label>type:<input onChange={(e) =>handle(e)} id="type" type="text"/></label>
+      <label>location:<input onChange={(e) =>handle(e)} id="location" type="text"/></label>
+      <label>img:<input onChange={(e) =>handle(e)} id="img" type="text"/></label>
+      <label>kind:<input onChange={(e) =>handle(e)} id="kind" type="text"/></label>
       <button>Submit</button>
       
     </form>
