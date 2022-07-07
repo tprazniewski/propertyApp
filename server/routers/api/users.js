@@ -58,6 +58,7 @@ router.put('/:id`', (req, res) => {
   res.send('userPut').status(200).end();
 });
 router.delete('/:id`', (req, res) => {
+  
   res.send('userDlete').status(200).end();
 });
 

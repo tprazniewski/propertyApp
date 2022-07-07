@@ -3,10 +3,16 @@ const router = express.Router();
 const connection = require('../../db/mySql')
 
 router.get('/', async (req, res) => {
+  let location = req.query.location
+  let type = req.query.type
+
+  console.log(location)
+  console.log(type)
   try {
-    const sqlQuery = 'SELECT * FROM properties';
+    const sqlQuery = location==undefined ?  'SELECT * FROM properties' : `SELECT * FROM properties where location = '${location}' and type=${type}`;
     const rows = await connection.query(sqlQuery);
     delete rows.meta;
+    console.log(rows)
     res.status(200).json(rows).end();
     
   } catch (error) {
@@ -35,7 +41,6 @@ router.post('/', async (req, res) => {
     `
     const rows = await connection.query(sqlQuery);
     // delete rows.meta;
-    console.log(rows)
     res.status(200).json('You added a new property').end();
     
   } catch (error) {

@@ -24,7 +24,7 @@ export const Buttons = () => {
   return (
     
     <form onSubmit={e =>submit(e)}>
-      <label>Name:<input onChange={(e) =>handleData(e)} id="name" type="text"/></label>
+      <label>Location:<input onChange={(e) =>handleData(e)} id="name" type="text"/></label>
       <div>
         <Link to="/sale" data={data}>
           <button>Sale</button>
