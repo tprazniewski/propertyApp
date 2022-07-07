@@ -1,8 +1,6 @@
 import React, {useState} from 'react'
 import { Input } from './Input'
-import Axios from 'axios'
 import './Form.css'
-import axios from 'axios'
 
 export const Form = () => {
   const [data, setData] = useState({
@@ -44,6 +42,7 @@ export const Form = () => {
       <label>email:<input onChange={(e) =>handle(e)} id="email" type="text"/></label>
       <label>phone:<input onChange={(e) =>handle(e)} id="phone" type="text"/></label>
       <button>Submit</button>
+      
     </form>
   )
 }

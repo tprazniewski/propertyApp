@@ -5,6 +5,9 @@ import {Properties} from './components/Properties'
 import {Header} from './components/Header'
 import {Buttons} from './components/Buttons'
 import { Form } from './components/Form';
+import {toRent} from './components/ToRent'
+import {forSale} from './components/ForSale'
+import RentPage from './pages/RentPage'
 
 function App() {
   // const [backeEndData, setBackEndData] = useState([{}]);
@@ -16,6 +19,8 @@ function App() {
         <section>
           <Routes>
               <Route path="/" element={<Buttons />} />
+              <Route path="/sale" element={<forSale />} />
+              <Route path="/rent" element={<RentPage />} />
               <Route path="/users" element={<Users />} />
               <Route path="/properties" element={<Properties />} />
               <Route path="/users/new" element={<Form />} />

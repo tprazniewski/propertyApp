@@ -1,27 +1,27 @@
+
 import React, {useState, useEffect} from 'react'
-// import { useParams } from 'react-router-dom'
-// import {getUsers} from '../utilities/api'
+import Card from './Card'
 export const Users = () => {
-  const [users, setUsers] = useState([])
-  
-  const getUsers = () => {
-    const url = 'http://localhost:5001/api/users'
-    return fetch(url, {
-      method: 'GET',
-      mode: 'cors'
-    })
+
+  const [data, setData] = useState([]);
+
+  const handleFetch = () => {
+    const url = 'http://localhost:5001/api/users/'
+    fetch(url)
     .then(res => res.json())
-    .then(res => setUsers(res))
-    .catch(err => console.error(err.message))
+    .then(data => setData(data))
+    .catch(e => console.log(e.message))
   }
+
   useEffect(() => {
-    getUsers()
+    // console.log(data)
+    handleFetch()
   }, [])
+
       return (
         <div>
-        {users.map(user => <h2>{user.length}</h2>)}
-        {users.map(user => <h2>{user.name}</h2>)}
-          </div>
+        {data && data.map(user => <Card key={user.id} user={user} />)}
+        </div>
       )
   
   }
