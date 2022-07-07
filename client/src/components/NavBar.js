@@ -15,14 +15,14 @@ export const NavBar = () => {
           <Link to='/properties'>
             <li >Properties</li>
           </Link>
-          <Link to='/auth'>
-            <li >Authentication</li>
-          </Link>
-          <Link to='/users/new'>
-            <li >Add new user</li>
-          </Link>
           <Link to='/properties/new'>
             <li >Add new Property</li>
+          </Link>
+          <Link to='/users/new'>
+            <li >Add new users</li>
+          </Link>
+          <Link to='/auth'>
+            <li >Authentication</li>
           </Link>
         </ul>
   )
