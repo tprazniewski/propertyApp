@@ -8,7 +8,7 @@ console.log(user.name)
     <>
       {/* <img src={user.img} alt={user.name} /> */}
     <Link to={`/users/${user.id}`} >
-        <h2>{user.name}</h2>
+        <h2>{user.name} {user.surname}</h2>
     </Link>
     </>
   )

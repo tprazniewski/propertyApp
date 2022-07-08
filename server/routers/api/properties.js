@@ -3,19 +3,28 @@ const router = express.Router();
 const connection = require('../../db/mySql')
 
 router.get('/', async (req, res) => {
+  console.log("weszlo")
   let location = req.query.location
   let type = req.query.type
-
-  console.log(location)
-  console.log(type)
+  let user_id = req.query.user_id
+  console.log(user_id)
   try {
-    const sqlQuery = location==undefined ?  'SELECT * FROM properties' : `SELECT * FROM properties where location = '${location}' and type=${type}`;
+    let sqlQuery;
+    if ( location ){
+      sqlQuery=`SELECT * FROM properties where location = '${location}' and type=${type}`
+    } else if (user_id ) {
+      console.log("moj sql")
+      sqlQuery=`SELECT * FROM properties where user_id='${user_id}'`
+    } else if( location==undefined ){
+      sqlQuery='SELECT * FROM properties' 
+    }
     const rows = await connection.query(sqlQuery);
     delete rows.meta;
     console.log(rows)
     res.status(200).json(rows).end();
     
   } catch (error) {
+    console.log(error.message)
     res.status(400).send(error.message)
   }
 
@@ -34,19 +43,20 @@ router.get('/:id', async (req, res) => {
 });
 router.post('/', async (req, res) => {
 
-  const {title, description, price, type, location, img, kind, property_id} = req.body
+  const {title, description, price, type, location, img, kind, user_id} = req.body
   console.log(req.body)
 
   try {
     const sqlQuery = ` 
-    INSERT INTO properties (title, description, price, type, location, img, kind, property_id)
+    INSERT INTO properties (title, description, price, type, location, img, kind, user_id)
     VALUES
-    ('${title}', '${description}', 777, '${type}', '${location}', '${imgs}', '${kind}', 2 )
+    ('${title}', '${description}', ${parseInt(price)}, '${type}', '${location}', '${img}', '${kind}', 2 )
     `
     const rows = await connection.query(sqlQuery);
     res.status(200).json({ response: 'Added'}).end();
     
   } catch (error) {
+    console.log(error.message)
     res.status(400).send(error.message)
   }
 

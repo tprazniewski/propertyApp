@@ -5,14 +5,14 @@ import { Header } from '../components/Header';
 import { useParams } from "react-router-dom";
 
 
-const RentPage = () => {
+const SalePage = () => {
   const {data, setData} = useContext(AppContext)
   const [listData, setListData] = useState(null)
   const { id } = useParams();
   console.log(id)
 
   const handleFetch = () => {
-    const url = `http://localhost:5001/api/properties?location=${data.name}&type='Rent'`
+    const url = `http://localhost:5001/api/properties?location=${data.name}&type='Sale'`
     fetch(url)
     .then(res => res.json())
     .then(data => setListData(data))
@@ -40,4 +40,4 @@ const RentPage = () => {
   )
 }
 
-export default RentPage
+export default SalePage

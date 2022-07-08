@@ -10,7 +10,7 @@ export function NewPropertyForm() {
     location: '',
     img: '131231',
     kind: '',
-    property_id: 1
+    user_id: 1
   })
   
   const handle = e => {

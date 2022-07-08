@@ -19,8 +19,9 @@ export const Users = () => {
   }, [])
 
       return (
-        <div>
-        {data && data.map(user => <Card key={user.id} user={user} />)}
+        <div className='todo-container'>
+          <h2 className='todo-contailer__text'> User List</h2>
+        {data && data.map(user =><div className='todo__item'> <Card key={user.id} user={user} /> </div>)}
         </div>
       )
   

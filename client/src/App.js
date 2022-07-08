@@ -8,9 +8,11 @@ import { Form } from './components/Form';
 import {toRent} from './components/ToRent'
 import {forSale} from './components/ForSale'
 import RentPage from './pages/RentPage'
+import SalePage from './pages/SalePage'
 import User from './pages/User'
 import Property from './pages/Property'
 import {NewPropertyForm} from './components/NewPropertyForm';
+import './App.css';
 
 function App() {
   // const [backeEndData, setBackEndData] = useState([{}]);
@@ -22,7 +24,7 @@ function App() {
         <section>
           <Routes>
               <Route path="/" element={<Buttons />} />
-              <Route path="/sale" element={<forSale />} />
+              <Route path="/sale" element={<SalePage />} />
               <Route path="/rent" element={<RentPage />} />
               <Route path="/users" element={<Users />} />
               <Route path="/users/:id" element={<User />} />
