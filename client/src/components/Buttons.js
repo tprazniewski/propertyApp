@@ -22,19 +22,22 @@ export const Buttons = () => {
   <Route path="/" element={<Buttons />} />
 
   return (
-    
+    <div class="container">
     <form onSubmit={e =>submit(e)}>
       <label>Location:<input onChange={(e) =>handleData(e)} id="name" type="text"/></label>
       <div>
+        <div className='btns'>
+
         <Link to="/sale" data={data}>
-          <button>Sale</button>
+          <button class="btn2">Sale</button>
         </Link>
 
         <Link to="/rent" data={data}>
-          <button>Rent</button>
+          <button class="btn2">Rent</button>
         </Link>
+        </div>
       </div>
    </form>
-
+</div>
   )
 }

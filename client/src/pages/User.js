@@ -29,25 +29,26 @@ const User = () => {
   }
   console.log(userId)
 
-  // INSERT INTO users (name, surname, dob, email, phone)
-
   return (
     <div className='todo-list'>
-      <div className='todo__item'>
-      <h1>{data[0].name} {data[0].surname}</h1>
-      <p>{data[0].dob.slice(0, -14)}</p>
-      <p>{data[0].email}</p>
-      <p>{data[0].phone}</p>
+      <h2 className="todo-contailer__text"> User</h2>
+      <div className='todo__item btn'>
+      <h1>Name Surname: {data[0].name} {data[0].surname}</h1>
+      <p>Dob: {data[0].dob.slice(0, -14)}</p>
+      <p>Email: {data[0].email}</p>
+      <p>Phone: {data[0].phone}</p>
       </div>
-
+      <h2 className="todo-contailer__text"> Your Properties</h2>
       <div className='todo__item2'>
         { userId && userId.map(userId => 
-        <Link to={`/properties/${userId.id}`} >
-            <h1>{userId.id}</h1>
-            <p>{userId.title}</p>
-            <p>{userId.price}</p>
-          <p>{userId.kind}</p>
+           <div className='todo__item-in' >
+        <Link class="btn" to={`/properties/${userId.id}`} >
+            <p>Title: {userId.title}</p>
+            <p>Price: {userId.price}</p>
+            <p>Kind: {userId.kind}</p>
+            <p>Location: {userId.location}</p>
         </Link>
+            </div>
         )}
       </div>
     </div>

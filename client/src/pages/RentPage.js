@@ -3,6 +3,7 @@ import { AppContext } from "../context/Context";
 // COMPONENTS
 import { Header } from '../components/Header';
 import { useParams } from "react-router-dom";
+import CardProperty from '../components/CardProperty'
 
 
 const RentPage = () => {
@@ -30,10 +31,11 @@ const RentPage = () => {
   return (
     <section>
       <Header />
-      {data && <p>{data.name}</p>}
+      {/* {data && <p>{data.name}</p>} */}
       
-      <div>
-        {data && listData.map(property => <h2>{property.type}</h2>)}
+      
+      <div className='todo-container'>
+      {data && listData.map(property => <div className='todo__item'><CardProperty key={property.id} property={property} /> </div>)}
        </div>
 
     </section>

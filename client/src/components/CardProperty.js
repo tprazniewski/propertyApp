@@ -8,8 +8,10 @@ const CardProperty = ({property}) => {
   return (
     <>
       {/* <img src={user.img} alt={user.name} /> */}
-    <Link to={`/properties/${property.id}`} >
+    <Link class="btn" to={`/properties/${property.id}`} >
         <h2>{property.title}</h2>
+        <h2>Price: {property.price}</h2>
+
     </Link>
     </>
   )

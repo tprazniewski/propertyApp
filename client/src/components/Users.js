@@ -20,8 +20,8 @@ export const Users = () => {
 
       return (
         <div className='todo-container'>
-          <h2 className='todo-contailer__text'> User List</h2>
-        {data && data.map(user =><div className='todo__item'> <Card key={user.id} user={user} /> </div>)}
+          <h2 className='todo-contailer__text'> Users List</h2>
+        {data && data.map(user =><div className='inner'> <Card key={user.id} user={user} /> </div>)}
         </div>
       )
   

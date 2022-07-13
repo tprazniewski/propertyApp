@@ -25,15 +25,15 @@ const User = () => {
   if (!data) {
     return '....loading'
   }
-  // INSERT INTO users (name, surname, dob, email, phone)
 
   return (
     <div className='todo-list'>
       <div className='todo__item'>
-        <h1>{data.title} {data.description}</h1>
-        <p>{data.price}</p>
-        <p>{data.type}</p>
-        <p>{data.location}</p>
+        <h1>Title: {data.title}</h1>
+        <h1> Description: {data.description}</h1>
+        <p> Price: {data.price}</p>
+        <p> Type: {data.type}</p>
+        <p> Location: {data.location}</p>
       </div>
     </div>
   )

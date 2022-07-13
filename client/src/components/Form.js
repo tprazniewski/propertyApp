@@ -34,15 +34,17 @@ export const Form = () => {
   }
   
   return (
-    // <form className="place-form">
-    <form onSubmit={e =>submit(e)}>
-      <label>Name:<input onChange={(e) =>handle(e)} id="name" type="text"/></label>
-      <label>Surname:<input onChange={(e) =>handle(e)}  id="surname" type="text"/></label>
-      <label>DOB:<input onChange={(e) =>handle(e)} id="dob" type="text"/></label>
-      <label>email:<input onChange={(e) =>handle(e)} id="email" type="text"/></label>
-      <label>phone:<input onChange={(e) =>handle(e)} id="phone" type="text"/></label>
-      <button>Submit</button>
-      
-    </form>
+    <>
+      <form className='place-form' onSubmit={e =>submit(e)}>
+        <div className='form-control'><label>Name:</label><input onChange={(e) =>handle(e)} id="name" type="text"/></div>
+        <div className='form-control'><label>Surname:</label><input onChange={(e) =>handle(e)}  id="surname" type="text"/></div>
+        <div className='form-control'><label>DOB:</label><input onChange={(e) =>handle(e)} id="dob" type="text"/></div>
+        <div className='form-control'><label>email:</label><input onChange={(e) =>handle(e)} id="email" type="text"/></div>
+        <div className='form-control'><label>phone:</label><input onChange={(e) =>handle(e)} id="phone" type="text"/></div>
+        
+        <button>Submit</button>
+        
+      </form>
+    </>
   )
 }

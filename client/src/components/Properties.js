@@ -20,9 +20,8 @@ useEffect(() => {
 }, [])
     return (
     	<div className='todo-container'>
-      {/* {properties.map(name => <h2>{name.title}</h2>)}
-      {properties.map(name => <h2>{name.price}</h2>)} */}
-        {data && properties.map(property => <div className='todo__item'><CardProperty key={property.id} property={property} /> </div>)}
+          <h2 className='todo-contailer__text'> Properties List</h2>
+          {data && properties.map(property => <div className='todo__item'><CardProperty key={property.id} property={property} /> </div>)}
       </div>
     )
 

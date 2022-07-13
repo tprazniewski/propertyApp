@@ -15,8 +15,6 @@ import {NewPropertyForm} from './components/NewPropertyForm';
 import './App.css';
 
 function App() {
-  // const [backeEndData, setBackEndData] = useState([{}]);
-
   return (
     <BrowserRouter>
         <h1> Property App </h1>

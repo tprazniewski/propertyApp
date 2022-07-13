@@ -42,7 +42,7 @@ router.get('/:id', async (req, res) => {
 
 });
 router.post('/', async (req, res) => {
-
+  console.log("server triggeered")
   const {title, description, price, type, location, img, kind, user_id} = req.body
   console.log(req.body)
 
@@ -50,7 +50,7 @@ router.post('/', async (req, res) => {
     const sqlQuery = ` 
     INSERT INTO properties (title, description, price, type, location, img, kind, user_id)
     VALUES
-    ('${title}', '${description}', ${parseInt(price)}, '${type}', '${location}', '${img}', '${kind}', 2 )
+    ('${title}', '${description}', ${parseInt(price)}, '${type}', '${location}', '${img}', '${kind}', 5 )
     `
     const rows = await connection.query(sqlQuery);
     res.status(200).json({ response: 'Added'}).end();

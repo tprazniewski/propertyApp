@@ -36,14 +36,14 @@ export function NewPropertyForm() {
 
   return (
     // <form className="place-form">
-    <form onSubmit={e =>submit(e)}>
-      <label>title:<input onChange={(e) =>handle(e)} id="title" type="text"/></label>
-      <label>description:<input onChange={(e) =>handle(e)}  id="description" type="text"/></label>
-      <label>price:<input onChange={(e) =>handle(e)} id="price" type="text"/></label>
-      <label>type:<input onChange={(e) =>handle(e)} id="type" type="text"/></label>
-      <label>location:<input onChange={(e) =>handle(e)} id="location" type="text"/></label>
-      <label>img:<input onChange={(e) =>handle(e)} id="img" type="text"/></label>
-      <label>kind:<input onChange={(e) =>handle(e)} id="kind" type="text"/></label>
+    <form className='place-form' onSubmit={e =>submit(e)}>
+      <div className='form-control'><label>title:</label><input onChange={(e) =>handle(e)} id="title" type="text"/></div>
+      <div className='form-control'><label>description:</label><input onChange={(e) =>handle(e)}  id="description" type="text"/></div>
+      <div className='form-control'><label>price:</label><input onChange={(e) =>handle(e)} id="price" type="text"/></div>
+      <div className='form-control'><label>type:</label><input onChange={(e) =>handle(e)} id="type" type="text"/></div>
+      <div className='form-control'><label>location:</label><input onChange={(e) =>handle(e)} id="location" type="text"/></div>
+      <div className='form-control'><label>img:</label><input onChange={(e) =>handle(e)} id="img" type="text"/></div>
+      <div className='form-control'><label>kind:</label><input onChange={(e) =>handle(e)} id="kind" type="text"/></div>
       <button>Submit</button>
       
     </form>
